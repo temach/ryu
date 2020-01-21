@@ -182,6 +182,8 @@ class OpenFlowController(object):
                 # Restrict non-safe versions
                 ssl_args['ssl_ctx'].options |= ssl.OP_NO_SSLv3 | ssl.OP_NO_SSLv2
 
+                print(ssl_args['ssl_ctx'].verify_flags)
+
             if CONF.ca_certs is not None:
                 server = StreamServer((CONF.ofp_listen_host,
                                        ofp_ssl_listen_port),
