@@ -67,6 +67,7 @@ CONF.register_cli_opts([
     cfg.StrOpt('ctl-privkey', default=None, help='controller private key'),
     cfg.StrOpt('ctl-cert', default=None, help='controller certificate'),
     cfg.StrOpt('ca-certs', default=None, help='CA certificates'),
+    cfg.StrOpt('crl-certs', default=None, help='CRL certificates'),
     cfg.ListOpt('ofp-switch-address-list', item_type=str, default=[],
                 help='list of IP address and port pairs (default empty). '
                      'e.g., "127.0.0.1:6653,[::1]:6653"'),
