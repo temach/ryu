@@ -1,0 +1,32 @@
+Controller:
+
+apt-get -y update
+apt-get -y install vim
+apt-get -y install git
+# must be python 3.6 otherwise (if python 3.7 or 3.8) error: '_context' in GreenSSLSocket
+apt-get -y install python3.6
+apt-get -y install python3-pip
+apt-get -y install python3-setuptools
+cd ~
+git clone https://github.com/temach/ryu
+pip3 install -r tools/pip-requiers
+python3 setup.pt install
+ryu-manager --ctl-privkey /root/ryu/dummy-certs/ctrl2/ctrl2-privkey.pem --ctl-cert /root/ryu/dummy-certs/ctrl2/ctrl2-cert.pem --ca-certs /root/ryu/dummy-certs/switchca-mix.pem --verbose
+
+
+
+Forwarder:
+
+apt-get -y update
+apt-get -y install vim
+apt-get -y install git
+apt-get -y install openvswitch-common openvswitch-switch
+cd ~
+git clone https://github.com/temach/ryu
+apt-get install nmap
+export "PATH=/usr/share/openvswitch/scripts/:$PATH"
+ovs-ctl start
+ovs-vsctl init
+ovs-vsctl add-br br0
+ovs-vsctl show
+ovs-vsctl set-controller br0 ssl:192.168.122.57:6653 --private-key=/root/ryu/dummy-certs/sw2/sw2-privkey.pem --certificate=/root/ryu/dummy-certs/sw2/sw2-cert.pem --ca-cert=/root/ryu/dummy-certs/switchca-mix.pem 

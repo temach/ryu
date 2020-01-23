@@ -1,0 +1,17 @@
+{
+    "name": "Arch Linux Gns3",
+    "category": "guest",
+    "description": "Arch linux",
+    "vendor_name": "Arch linux",
+    "vendor_url": "https://www.kali.org/",
+    "documentation_url": "https://www.kali.org/kali-linux-documentation/",
+    "product_name": "Arch linux",
+    "registry_version": 3,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "tematibr@gns3.net",
+    "docker": {
+        "adapters": 2,
+        "image": "archlinux"
+    }
+}
