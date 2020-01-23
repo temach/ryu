@@ -182,6 +182,7 @@ class OpenFlowController(object):
                 ssl_args = {'ssl_ctx': ssl.SSLContext(getattr(ssl, p))}
                 # Restrict non-safe versions
                 ssl_args['ssl_ctx'].options |= ssl.OP_NO_SSLv3 | ssl.OP_NO_SSLv2
+                ssl_args['ssl_ctx'].verify_flags = ssl.VERIFY_CRL_CHECK_LEAF
 
                 print(ssl_args['ssl_ctx'].verify_flags)
 
