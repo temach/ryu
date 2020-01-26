@@ -182,11 +182,22 @@ class OpenFlowController(object):
                 ssl_args = {'ssl_ctx': ssl.SSLContext(getattr(ssl, p))}
                 # Restrict non-safe versions
                 ssl_args['ssl_ctx'].options |= ssl.OP_NO_SSLv3 | ssl.OP_NO_SSLv2
-                ssl_args['ssl_ctx'].verify_flags = ssl.VERIFY_CRL_CHECK_LEAF
 
                 print(ssl_args['ssl_ctx'].verify_flags)
 
-            if CONF.ca_certs is not None:
+            if CONF.ca_certs is not None and CONF.crl_certs is not None:
+                ssl_args['ssl_ctx'].verify_flags = ssl.VERIFY_CRL_CHECK_LEAF
+
+                server = StreamServer((CONF.ofp_listen_host,
+                                       ofp_ssl_listen_port),
+                                      datapath_connection_factory,
+                                      keyfile=CONF.ctl_privkey,
+                                      certfile=CONF.ctl_cert,
+                                      cert_reqs=ssl.CERT_REQUIRED,
+                                      ca_certs=CONF.ca_certs,
+                                      crl_certs=CONF.crl_certs, **ssl_args)
+
+            elif CONF.ca_certs is not None:
                 server = StreamServer((CONF.ofp_listen_host,
                                        ofp_ssl_listen_port),
                                       datapath_connection_factory,

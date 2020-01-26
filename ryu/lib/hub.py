@@ -128,7 +128,6 @@ if HUB_TYPE == 'eventlet':
                 self.server = eventlet.listen(listen_info)
 
             print(ssl_args)
-            pdb.set_trace()
 
             if ssl_args:
                 ssl_args.setdefault('server_side', True)
@@ -138,10 +137,13 @@ if HUB_TYPE == 'eventlet':
                                         ssl_args.pop('keyfile'))
                     if 'cert_reqs' in ssl_args:
                         ctx.verify_mode = ssl_args.pop('cert_reqs')
+                        pdb.set_trace()
                     if 'ca_certs' in ssl_args:
                         ctx.load_verify_locations(ssl_args.pop('ca_certs'))
+                        pdb.set_trace()
                     if 'crl_certs' in ssl_args:
                         ctx.load_verify_locations(ssl_args.pop('clr_certs'))
+                        pdb.set_trace()
                     def wrap_and_handle_ctx(sock, addr):
                         handle(ctx.wrap_socket(sock, **ssl_args), addr)
                     self.handle = wrap_and_handle_ctx
