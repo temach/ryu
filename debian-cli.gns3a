@@ -1,0 +1,17 @@
+{
+    "name": "Debian Linux Gns3",
+    "category": "guest",
+    "description": "Debian linux",
+    "vendor_name": "Debian linux",
+    "vendor_url": "https://www.kali.org/",
+    "documentation_url": "https://www.kali.org/kali-linux-documentation/",
+    "product_name": "Debian linux",
+    "registry_version": 3,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "tematibr@gns3.net",
+    "docker": {
+        "adapters": 2,
+        "image": "debian"
+    }
+}
