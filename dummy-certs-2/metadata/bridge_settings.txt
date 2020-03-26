@@ -1,0 +1,7 @@
+d4439e94-3716-4561-9ab0-0477b496f60b
+    Bridge "br0"
+        Controller "ssl:188.130.155.41:6633"
+        Port "br0"
+            Interface "br0"
+                type: internal
+    ovs_version: "2.12.0"

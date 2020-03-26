@@ -1,0 +1,4 @@
+Private key: /home/user/certs/sw1-privkey.pem
+Certificate: /home/user/certs/sw1-cert.pem
+CA Certificate: /home/user/certs/switchca-cert.pem
+Bootstrap: false

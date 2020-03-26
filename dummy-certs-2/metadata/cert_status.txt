@@ -1,0 +1,9 @@
+Serial |Validity |Expiration Date          |Revocation Date          |CommonName(Subject)
+=============================================================================================
+    01 |Valid    | 2030-03-14 20:14:38 GMT |                       - |switchca CA Certificate
+    02 |Valid    | 2030-03-14 20:16:09 GMT |                       - |controllerA
+    03 |Valid    | 2030-03-14 20:17:53 GMT |                       - |controllerB
+    04 |Revoked  | 2030-03-14 20:18:30 GMT | 2020-03-16 20:20:46 GMT |controllerC
+    05 |Valid    | 2030-03-14 20:18:55 GMT |                       - |forwarderA
+    06 |Valid    | 2030-03-14 20:19:01 GMT |                       - |forwarderB
+    07 |Revoked  | 2030-03-14 20:19:03 GMT | 2020-03-16 20:21:25 GMT |forwarderC
