@@ -11,7 +11,9 @@ ovs-vsctl init
 ovs-vsctl add-br br0
 ovs-vsctl show
 # ovs-vsctl set-ssl /root/ryu/dummy-certs/sw2/sw2-privkey.pem /root/ryu/dummy-certs/sw2/sw2-cert.pem /root/ryu/dummy-certs/switchca-mix.pem
-ovs-vsctl set-ssl /root/ryu/dummy-certs/sw2/sw2-privkey.pem /root/ryu/dummy-certs/sw2/sw2-cert.pem /root/ryu/dummy-certs/switchca-mix.pem
+ovs-vsctl set-ssl /root/ryu/dummy-certs-2/forwarderA-privkey.pem \
+	/root/ryu/dummy-certs-2/forwarderA-cert.pem \
+	/root/ryu/dummy-certs-2/switchca-cert.pem
 
 # After settings SSL run this with your ip address
-# ovs-vsctl set-controller br0 ssl:192.168.122.125:6653
+# ovs-vsctl set-controller br0 ssl:192.168.10.1:6653
