@@ -1,8 +1,8 @@
 #!/bin/bash
 git pull
-python3 setup.py install
+( cd .. && python3 setup.py install )
 ryu-manager \
-	--ctl-privkey /root/ryu/dummy-certs/ctrl2/ctrl2-privkey.pem \
-	--ctl-cert /root/ryu/dummy-certs/ctrl2/ctrl2-cert.pem \
-	--ca-certs /root/ryu/dummy-certs/switchca-mix.pem \
+	--ctl-privkey /root/ryu/dummy-certs-2/controllerA-privkey.pem \
+	--ctl-cert /root/ryu/dummy-certs-2/controllerA-cert.pem \
+	--ca-certs /root/ryu/dummy-certs-2/switchca-cert.pem \
 	--verbose
